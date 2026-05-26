@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
 import { Clock, Shield, Star } from "lucide-react";
 import { CountUp } from "@/components/CountUp";
@@ -93,19 +94,21 @@ export function Hero() {
 
         <motion.div
           className="hero-portrait"
-          initial={{ opacity: 0, x: 34, scale: 0.98 }}
-          animate={{ opacity: 1, x: 0, scale: 1 }}
+          initial={{ opacity: 0, y: 24, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ delay: 1.2, duration: 0.86, ease: [0.22, 1, 0.36, 1] }}
           aria-hidden="true"
         >
           <div className="portrait-frame">
+            <Image
+              src="/images/lawyer.png"
+              alt=""
+              fill
+              priority
+              sizes="(max-width: 980px) 100vw, 42vw"
+              className="portrait-photo"
+            />
             <div className="portrait-light" />
-            <div className="portrait-figure">
-              <span className="figure-head" />
-              <span className="figure-shoulders" />
-              <span className="figure-lapel left" />
-              <span className="figure-lapel right" />
-            </div>
           </div>
         </motion.div>
       </div>

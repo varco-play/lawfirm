@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { CheckCircle, Lock, Scale, Shield } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import {
@@ -43,7 +44,17 @@ export function AboutFirm() {
         {attorneys.map((attorney, index) => (
           <Reveal className="attorney-card glass-card" delay={index * 0.08} key={attorney.name}>
             <div className="attorney-portrait" aria-hidden="true">
-              <span>{attorney.initials}</span>
+              {attorney.photo ? (
+                <Image
+                  src={attorney.photo}
+                  alt=""
+                  fill
+                  sizes="(max-width: 980px) 112px, 190px"
+                  className="attorney-photo"
+                />
+              ) : (
+                <span>{attorney.initials}</span>
+              )}
             </div>
             <div>
               <h3>{attorney.name}</h3>

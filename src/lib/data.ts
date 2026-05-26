@@ -90,6 +90,7 @@ export const attorneys = [
     description:
       "20+ years of courtroom experience. Known for calm under pressure, meticulous preparation, and client-centered advocacy.",
     initials: "AV",
+    photo: null,
   },
   {
     name: "David Ashford",
@@ -97,6 +98,7 @@ export const attorneys = [
     description:
       "A strategic litigator with deep experience in civil, family, and business disputes.",
     initials: "DA",
+    photo: "/images/lawyer.png",
   },
 ];
 

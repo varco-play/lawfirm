@@ -576,8 +576,8 @@ button {
 
 .hero-content {
   display: grid;
-  grid-template-columns: minmax(0, 1.02fr) minmax(330px, 0.78fr);
-  gap: clamp(28px, 5vw, 74px);
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.68fr);
+  gap: clamp(24px, 3.5vw, 52px);
   align-items: center;
 }
 
@@ -695,13 +695,33 @@ button {
   box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.55), 0 38px 120px rgba(0, 0, 0, 0.48);
 }
 
+.portrait-frame::after {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(180deg, rgba(6, 8, 10, 0.02), rgba(6, 8, 10, 0.32)),
+    radial-gradient(circle at 52% 20%, transparent 0 34%, rgba(6, 8, 10, 0.26) 82%);
+}
+
+.portrait-photo {
+  z-index: 1;
+  object-fit: cover;
+  object-position: center 24%;
+  filter: saturate(0.92) contrast(1.05);
+}
+
 .portrait-light {
   position: absolute;
   inset: 0;
+  z-index: 2;
+  pointer-events: none;
   background:
     linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent),
     repeating-linear-gradient(90deg, transparent 0 28px, rgba(255, 255, 255, 0.055) 28px 30px);
-  opacity: 0.56;
+  opacity: 0.34;
   animation: shimmer 9s ease-in-out infinite alternate;
 }
 
@@ -1032,6 +1052,7 @@ button {
 }
 
 .attorney-portrait {
+  position: relative;
   display: grid;
   width: clamp(112px, 18vw, 190px);
   aspect-ratio: 0.82;
@@ -1042,6 +1063,19 @@ button {
   background:
     radial-gradient(circle at 50% 18%, rgba(232, 201, 135, 0.22), transparent 34%),
     linear-gradient(160deg, #23262a, #090b0d);
+}
+
+.attorney-photo {
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+.attorney-portrait::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(180deg, transparent 45%, rgba(6, 8, 10, 0.32));
 }
 
 .attorney-portrait span {
